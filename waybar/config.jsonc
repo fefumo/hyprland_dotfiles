@@ -28,18 +28,19 @@
     },
 
     "battery": {
+        "interval": 30,
         "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
+            "good": 95,
+            "be-careful": 30,
+            "oh-no": 15
         },
         "format": "{icon} {capacity}%",
-        "format-full": "{icon} {capacity}%",
+        // "format-full": "{icon} {capacity}%",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        "format-good": "", // An empty format will hide the module
+        "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
 
@@ -102,7 +103,7 @@
 	},
 
     "custom/power": {
-        "format" : " ",
+        "format" : "",
 		"tooltip": false,
         // "on-click": "wlogout"
         "on-click": "$HOME/.config/wlogout/logoutlaunch.sh"
