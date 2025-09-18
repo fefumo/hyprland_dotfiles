@@ -111,6 +111,7 @@
 
     "hyprland/language": {
         "format-en": "en",
-        "format-ru": "ru"
+        "format-ru": "ru",
+        "on-click": "bash -lc 'dev=$(hyprctl -j devices | jq -r \".keyboards[] | select(.main==true).name\" | head -n1); [ -n \"$dev\" ] && hyprctl switchxkblayout \"$dev\" next'"
     }
 }
