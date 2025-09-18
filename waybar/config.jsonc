@@ -10,6 +10,7 @@
     ],
     "modules-right": [
         "mpris",
+        "hyprland/language",
         "network",
         "battery",
         "pulseaudio",
@@ -99,10 +100,16 @@
         "max-length": 20
 		// "ignored-players": ["firefox"]
 	},
+
     "custom/power": {
         "format" : " ",
 		"tooltip": false,
         // "on-click": "wlogout"
         "on-click": "$HOME/.config/wlogout/logoutlaunch.sh"
+    },
+
+    "hyprland/language": {
+        "format-en": "en",
+        "format-ru": "ru"
     }
 }
