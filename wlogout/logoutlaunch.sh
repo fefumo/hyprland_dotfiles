@@ -83,11 +83,11 @@ fi
 case "$theme" in
 white)
 
-    export MainBg='rgba(243, 238, 203, 0.95)'
+    export MainBg='rgba(243, 238, 203, 0.80)'
     export BtnCol='black'
 
-    export WbHvrBg='rgba(229, 222, 198, 0.92)' # ≈ #E5DEC6
-    export WbActBg='rgba(214, 204, 170, 0.92)' # ≈ #D6CCAA
+    export WbHvrBg='rgba(229, 222, 198, 0.12)'
+    export WbActBg='rgba(214, 204, 170, 0.22)'
     ;;
 black | dark)
     export MainBg='rgba(16,20,25,0.80)'
