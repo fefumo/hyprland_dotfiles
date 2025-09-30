@@ -1,4 +1,5 @@
 # Hyprland dotfiles
+
 An Arch/Hyprland rice -- pulled from various sources and tuned to my requirements.
 
 # Showcase :movie_camera:
@@ -8,15 +9,18 @@ https://github.com/user-attachments/assets/9f259afc-42b9-449a-a9d4-f0891f34bdb9
 ![](./assets/borderseparator.gif)
 
 # Specs :art:
+
 - [x] [lazyvim](https://github.com/LazyVim/LazyVim) (almost origin)
 - [x] wlogout black/white theme ([HyDE](https://github.com/HyDE-Project/HyDE) inspired)
 - [x] waybar black/white theme (personal)
 - [x] rofi, currently by [adi1090x](https://github.com/adi1090x/rofi)
-
+- [ ] notification manager
+- [ ] same file manager across the system
 
 ![](./assets/borderseparator.gif)
 
 ## Community is great yo :tada:
+
 Some eye-candies that make my workflow prettier:
 
 - my [wallpapers](https://github.com/fefumo/wallpapers)[^1]
