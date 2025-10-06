@@ -14,3 +14,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local_expandtab = true
   end,
 })
+
+local block = vim.fs.normalize(vim.fn.expand("~") .. "~/my-coding/os-course")
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { block .. "/**" },
+  callback = function(ev)
+    vim.b[ev.buf].autoformat = false
+  end,
+})
