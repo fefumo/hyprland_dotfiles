@@ -1,117 +1,117 @@
 {
-    "position": "top",
-    "layer": "top",
+  "position": "top",
+  "layer": "top",
 
-    "modules-left": [
-        "hyprland/workspaces",
-    ],
-    "modules-center": [
-        "clock",
-    ],
-    "modules-right": [
-        "mpris",
-        "hyprland/language",
-        "network",
-        "battery",
-        "pulseaudio",
-        "tray",
-        "custom/power"
-    ],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "mpris",
+    "hyprland/language",
+    "network",
+    "battery",
+    "pulseaudio",
+    "tray",
+    "custom/power",
+  ],
 
-	"hyprland/workspaces": {
-		"disable-scroll": true,
-	},
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+  },
 
-    "tray": {
-        "icon-size": 20,
-        "spacing": 10,
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10,
+  },
+
+  "battery": {
+    "interval": 30,
+    "full-at": 80,
+    "states": {
+      "normal": 70,
+      "warning": 30,
+      "critical": 15,
     },
-
-    "battery": {
-        "interval": 30,
-        "states": {
-            "good": 95,
-            "be-careful": 30,
-            "oh-no": 15
-        },
-        "format": "{icon} {capacity}%",
-        // "format-full": "{icon} {capacity}%",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-good": "", // An empty format will hide the module
-        "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
     },
+    "format": "{icon} {capacity}%",
+    // "format-full": "{icon} {capacity}%",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-full": "", // An empty format will hide the module
+    "format-icons": ["", "", "", "", ""],
+  },
 
-    "clock": {
-        "format": "<i>{:%H:%M}</i>",
-        "format-alt": "<i>{:%Y-%m-%d}</i>",
-        "tooltip-format": "{:%Y %B}\n{calendar}"
+  "clock": {
+    "format": "<i>{:%H:%M}</i>",
+    "format-alt": "<i>{:%Y-%m-%d}</i>",
+    "tooltip-format": "{:%Y %B}\n{calendar}",
+  },
+
+  "network": {
+    "format-wifi": "  {essid} {bandwidthDownBits}",
+    "format-ethernet": "󰈀 {ifname}",
+    "format-disconnected": " Offline",
+    "max-length": 20,
+  },
+
+  "pulseaudio": {
+    "format": "{icon} <span style=\"italic\">{volume}%</span>",
+    "format-bluetooth": "{icon}  <span style=\"italic\">{volume}%</span>",
+    "format-bluetooth-muted": "  {volume}%",
+    "format-muted": " {volume}%",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "tooltip": true,
+    "tooltip-format": "{desc}",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
     },
+    "on-click-right": "pavucontrol",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-",
+  },
 
-    "network": {
-        "format-wifi": "  {essid} {bandwidthDownBits}",
-        "format-ethernet": "󰈀 {ifname}",
-        "format-disconnected": " Offline",
-        "max-length" : 20,
+  "backlight": {
+    "format": "{icon} {percent}% ",
+    "format-icons": ["", "󰖨"],
+    "tooltip": false,
+  },
+
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "format-paused": "{status_icon} <i>paused</i>  ",
+    "player-icons": {
+      "default": "",
+      "spotify": "",
+      "firefox": "",
     },
-
-    "pulseaudio": {
-        "format": "{icon} <span style=\"italic\">{volume}%</span>",
-        "format-bluetooth": "{icon}  <span style=\"italic\">{volume}%</span>",
-        "format-bluetooth-muted": "  {volume}%",
-        "format-muted": " {volume}%",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
-        "tooltip": true,
-        "tooltip-format": "{desc}",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click-right": "pavucontrol",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+",
-        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+    "status-icons": {
+      "paused": "",
     },
+    "max-length": 20,
+    // "ignored-players": ["firefox"]
+  },
 
-    "backlight": {
-        "format": "{icon} {percent}% ",
-        "format-icons": ["", "󰖨"],
-        "tooltip": false,
-    },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    // "on-click": "wlogout"
+    "on-click": "$HOME/.config/wlogout/logoutlaunch.sh",
+  },
 
-	"mpris": {
-		"format": "{player_icon} {title}",
-		"format-paused": "{status_icon} <i>paused</i>  ",
-		"player-icons": {
-			"default": "",
-			"spotify": "",
-			"firefox": "",
-		},
-		"status-icons": {
-			"paused": ""
-		},
-        "max-length": 20
-		// "ignored-players": ["firefox"]
-	},
-
-    "custom/power": {
-        "format" : "",
-		"tooltip": false,
-        // "on-click": "wlogout"
-        "on-click": "$HOME/.config/wlogout/logoutlaunch.sh"
-    },
-
-    "hyprland/language": {
-        "format-en": "en",
-        "format-ru": "ru",
-        "on-click": "bash -lc 'dev=$(hyprctl -j devices | jq -r \".keyboards[] | select(.main==true).name\" | head -n1); [ -n \"$dev\" ] && hyprctl switchxkblayout \"$dev\" next'"
-    }
+  "hyprland/language": {
+    "format-en": "en",
+    "format-ru": "ru",
+    "on-click": "bash -lc 'dev=$(hyprctl -j devices | jq -r \".keyboards[] | select(.main==true).name\" | head -n1); [ -n \"$dev\" ] && hyprctl switchxkblayout \"$dev\" next'",
+  },
 }

@@ -15,11 +15,17 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-local block = vim.fs.normalize(vim.fn.expand("~") .. "~/my-coding/os-course")
+local block = vim.fn.expand("~/my-coding/os-course")
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { block .. "/**" },
+local grp = vim.api.nvim_create_augroup("DisableAutoformatForOSCourse", { clear = true })
+
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile", "BufEnter" }, {
+  group = grp,
   callback = function(ev)
-    vim.b[ev.buf].autoformat = false
+    local file = ev.file ~= "" and ev.file or vim.api.nvim_buf_get_name(ev.buf)
+    if file:sub(1, #block) == block then
+      vim.b[ev.buf].autoformat = false
+      vim.bo[ev.buf].formatexpr = ""
+    end
   end,
 })
