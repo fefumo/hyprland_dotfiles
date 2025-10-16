@@ -1,7 +1,7 @@
 @define-color trasnp_bg ${TranspBg};
 @define-color text ${Text};
 @define-color main_bg ${MainBg};
-@define-color work${Work};
+@define-color work ${Work};
 
 /* for testing */
 /* @define-color trasnp_bg rgba(9,13,20,0.40); */
