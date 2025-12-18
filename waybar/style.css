@@ -1,87 +1,98 @@
-@define-color trasnp_bg ${TranspBg};
+@define-color transp_bg ${TranspBg};
 @define-color text ${Text};
 @define-color main_bg ${MainBg};
 @define-color work ${Work};
 
 /* for testing */
-/* @define-color trasnp_bg rgba(9,13,20,0.40); */
+/* white theme */
+
+/* @define-color transp_bg rgba(190, 180, 204, 0.65); */
+/* @define-color text #0b1220; */
+/* @define-color main_bg rgba(0, 0, 0, 0.2); */
+/* @define-color work rgba(140, 219, 213, 0.7); */
+
+/* dark theme */
+
+/* @define-color transp_bg rgba(9,13,20,0.40); */
 /* @define-color text #eef3ff; */
 /* @define-color main_bg rgba(180,190,254,0.18); */
 /* @define-color chip_hover rgba(255,255,255,0.08); */
 /* @define-color work #b4befe; */
 
 * {
-    font-family: JetBrainsMono Nerd Font, monospace;
-    font-size: 16px;
-    font-weight: 700;
-    color: @text;
-    border: none;
+  font-family:
+    JetBrainsMono Nerd Font,
+    monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: @text;
+  border: none;
 }
 
 tooltip {
-    background: @trasnp_bg;
-    color: @text;
-    border-radius: 10px;
-    text-shadow: none; /* fix text rendering */
+  background: @transp_bg;
+  color: @text;
+  border-radius: 10px;
+  text-shadow: none; /* fix text rendering */
 }
 
 window#waybar {
-    background: @trasnp_bg;
-    border-radius: 18px;
+  background: @transp_bg;
+  border-radius: 18px;
 }
 
-.modules-left, .modules-center{
-    margin: 8px;
-    padding: 5px 16px;
-    border-radius: 18px;
+.modules-left,
+.modules-center {
+  margin: 8px;
+  padding: 5px 16px;
+  border-radius: 18px;
 }
 
-.modules-right{
-    border-radius: 18px;
-    margin: 8px;
+.modules-right {
+  border-radius: 18px;
+  margin: 8px;
 }
 
 .modules-right .module {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
-.modules-left, .modules-center, .modules-right {
-    background: @main_bg;
+.modules-left,
+.modules-center,
+.modules-right {
+  background: @main_bg;
 }
-
 
 /* ---------- Battery&power ---------- */
 #battery.warning {
-    color: rgba(255, 149, 57, 1);
+  color: rgba(255, 149, 57, 1);
 }
 
 #battery.critical {
-    color: rgba(242, 0, 0, 0.8);
+  color: rgba(242, 0, 0, 0.8);
 }
 
-#battery.charging{
-    color: rgba(73, 193, 77, 0.8);
+#battery.charging {
+  color: rgba(73, 193, 77, 0.8);
 }
 
-#custom-power{
-    font-size: 25px;
+#custom-power {
+  font-size: 25px;
 }
 
-#custom-power:hover{
-    font-size: 45px;
-    color: rgba(212, 52, 25, 0.9);
+#custom-power:hover {
+  font-size: 45px;
+  color: rgba(212, 52, 25, 0.9);
 }
 
 /* ---------- Workspaces ---------- */
 #workspaces button {
   margin: 3px;
   border-radius: 12px;
-  transition: background .15s ease;
+  transition: background 0.15s ease;
 }
 
 #workspaces button.active {
   background: @work;
-  box-shadow: 0 2px 10px rgba(180,190,254,0.45);
+  box-shadow: 0 2px 10px rgba(180, 190, 254, 0.45);
 }
-
-
