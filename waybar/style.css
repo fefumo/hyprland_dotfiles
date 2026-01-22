@@ -1,7 +1,7 @@
-@define-color transp_bg ${TranspBg};
-@define-color text ${Text};
-@define-color main_bg ${MainBg};
-@define-color work ${Work};
+/* @define-color transp_bg ${TranspBg}; */
+/* @define-color text ${Text}; */
+/* @define-color main_bg ${MainBg}; */
+/* @define-color work ${Work}; */
 
 /* for testing */
 /* white theme */
@@ -13,11 +13,11 @@
 
 /* dark theme */
 
-/* @define-color transp_bg rgba(9,13,20,0.40); */
-/* @define-color text #eef3ff; */
-/* @define-color main_bg rgba(180,190,254,0.18); */
-/* @define-color chip_hover rgba(255,255,255,0.08); */
-/* @define-color work #b4befe; */
+@define-color transp_bg rgba(9,13,20,0.40);
+@define-color text #eef3ff;
+@define-color main_bg rgba(180,190,254,0.18);
+@define-color chip_hover rgba(255,255,255,0.08);
+@define-color work #b4befe;
 
 * {
   font-family:
@@ -64,8 +64,11 @@ window#waybar {
 }
 
 /* ---------- Battery&power ---------- */
-#battery.warning {
+/* background: @transp_bg; */
+/* background: @main_bg; */
+#battery.wtf {
   color: rgba(255, 149, 57, 1);
+  /* color: rgba(242, 0, 0, 0.8); */
 }
 
 #battery.critical {
@@ -84,6 +87,10 @@ window#waybar {
   font-size: 45px;
   color: rgba(212, 52, 25, 0.9);
 }
+
+/* #network { */
+/*   background: @main_bg; */
+/* } */
 
 /* ---------- Workspaces ---------- */
 #workspaces button {

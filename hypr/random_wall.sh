@@ -25,10 +25,11 @@ if ((${#MONS[@]} == 0)); then
     echo "[ERR] No monitors found via hyprctl" >&2
     exit 2
 fi
+# echo "$MONS"
+# echo "$IMG"
 
-hyprctl hyprpaper preload "$IMG" >/dev/null
 for m in "${MONS[@]}"; do
-    hyprctl hyprpaper wallpaper "$m,$IMG" >/dev/null
+    hyprctl hyprpaper wallpaper "$m,$IMG," >/dev/null
 done
 
 echo "[OK] Set $IMG for: ${MONS[*]}"

@@ -11,7 +11,8 @@
     "battery",
     "pulseaudio",
     "tray",
-    "custom/power",
+    "custom/power"
+    // "idle_inhibitor"
   ],
 
   "hyprland/workspaces": {
@@ -28,7 +29,7 @@
     "full-at": 80,
     "states": {
       "normal": 70,
-      "warning": 30,
+      "wtf": 30,
       "critical": 15,
     },
     "events": {
@@ -38,7 +39,7 @@
     "format": "{icon} {capacity}%",
     // "format-full": "{icon} {capacity}%",
     "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
+    // "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     "format-full": "", // An empty format will hide the module
     "format-icons": ["", "", "", "", ""],

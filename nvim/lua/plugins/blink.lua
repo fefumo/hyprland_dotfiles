@@ -1,24 +1,23 @@
 return {
-  {
-    "saghen/blink.cmp",
-    opts = {
-      completion = {
-        menu = {
-          border = "rounded",
+  "Saghen/blink.cmp",
+  opts = {
+    completion = {
+      list = {
+        selection = {
+          preselect = false,
         },
-        documentation = {
-          window = {
-            border = "rounded",
-          },
+      },
+      menu = {
+        draw = {
+          treesitter = { "lsp" },
         },
-        list = {
-          selection = {
-            preselect = true,
-          },
-        },
-        ghost_text = {
-          enabled = false,
-        },
+      },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 500,
+      },
+      ghost_text = {
+        enabled = false,
       },
     },
   },
