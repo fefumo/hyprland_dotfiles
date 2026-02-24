@@ -29,7 +29,7 @@ fi
 # echo "$IMG"
 
 for m in "${MONS[@]}"; do
-    hyprctl hyprpaper wallpaper "$m,$IMG," >/dev/null
+    hyprctl hyprpaper wallpaper "$m,$IMG" >/dev/null
 done
 
 echo "[OK] Set $IMG for: ${MONS[*]}"
