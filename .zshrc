@@ -19,7 +19,7 @@ havei() {
   if $(pacman -Qi $package &>/dev/null); then
     echo -e "\e[92m[ 🗸 ] $package is installed \e[39m"
   else
-    echo -e "\e[91m[ ❌ ] $package is not installed \e[39m"
+    echo -e "\e[91m[ ❌] $package is not installed \e[39m"
   fi
 }
 
