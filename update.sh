@@ -8,3 +8,4 @@ cp -r ~/.config/waybar/* ./waybar
 cp -r ~/.config/wlogout/* ./wlogout
 cp -r ~/.config/dunst/* ./dunst
 cp ~/.bashrc ./
+cp ~/.zshrc ./

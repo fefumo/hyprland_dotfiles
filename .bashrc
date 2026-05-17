@@ -6,17 +6,6 @@
 [[ $- != *i* ]] && return
 
 
-# Source - https://stackoverflow.com/a/70679581
-# Posted by SylvainB
-# Retrieved 2026-05-17, License - CC BY-SA 4.0
-havei() {
-  package=$1
-  if $(pacman -Qi $package &>/dev/null); then
-    echo -e "\e[92m[ 🗸 ] $package is installed \e[39m"
-  else
-    echo -e "\e[91m[ ❌ ] $package is not installed \e[39m"
-  fi
-}
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
