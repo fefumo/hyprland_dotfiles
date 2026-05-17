@@ -18,7 +18,7 @@ normal = { family = "Mononoki Nerd Font Mono", style = "Regular" }
 bold = { family = "Mononoki Nerd Font Mono", style = "Bold" }
 italic = { family = "Mononoki Nerd Font Mono", style = "Italic" }
 bold_italic = { family = "Mononoki Nerd Font Mono", style = "Bold Italic" }
-size = 20
+size = 18
 
 [cursor]
 style = { shape = "Block", blinking = "On" } 
