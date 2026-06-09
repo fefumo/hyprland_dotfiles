@@ -9,3 +9,4 @@ cp -r ~/.config/wlogout/* ./wlogout
 cp -r ~/.config/dunst/* ./dunst
 cp ~/.bashrc ./
 cp ~/.zshrc ./
+cp ~/.local/share/sioyek/shared.db ./sioyek
