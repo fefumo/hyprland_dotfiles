@@ -1,4 +1,4 @@
-local MAX_ZOOM = 3
+local MAX_ZOOM = 5
 local MIN_ZOOM = 1
 local ZOOM_TOGGLE_FACTOR = 1.5
 
@@ -17,10 +17,15 @@ local function zoom(offset)
 	hl.config({ cursor = { zoom_factor = current } })
 end
 
-hl.bind("SUPER + Z", zoom)
-hl.bind("SUPER + KP_ADD", function()
-	zoom(0.5)
-end)
-hl.bind("SUPER + minus", function()
-	zoom(-0.5)
+local toggle = false
+
+-- i know it's dirty, but I'm too lazy to rewrite the zoom func itself
+hl.bind("SUPER + Z", function()
+	if not toggle then
+		zoom(MAX_ZOOM)
+		toggle = true
+	else
+		zoom()
+		toggle = false
+	end
 end)
