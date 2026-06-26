@@ -16,7 +16,8 @@
   ],
 
   "hyprland/workspaces": {
-    "disable-scroll": true,
+    "active-only": false,
+    "format": "{icon}"
   },
 
   "tray": {
