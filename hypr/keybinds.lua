@@ -1,3 +1,5 @@
+---@diagnostic disable-next-line: undefined-global
+local hl = hl
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
@@ -14,7 +16,7 @@ hl.bind("ALT + Print", hl.dsp.exec_cmd("hyprshot -m output --clipboard-only"))
 hl.bind(
 	mainMod .. " + R",
 	hl.dsp.exec_cmd(
-		"pkill -x waybar; pkill -x hyprpaper; sleep 0.2; hyprpaper & disown; sleep 0.2; ~/.config/hypr/random_wall.sh; ~/.config/waybar/gen_waybar_theme.sh;"
+		"pkill -x waybar; pkill -x hyprpaper; sleep 0.2; ~/.config/hypr/random_wall.sh; ~/.config/waybar/gen_waybar_theme.sh;"
 	)
 )
 hl.bind(
