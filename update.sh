@@ -1,12 +1,13 @@
 #!/usr/bin/env sh
 
-cp -r ~/.config/nvim/lua/* ./nvim
-cp -r ~/.config/hypr/* ./hypr
-cp -r ~/.config/alacritty/* ./alacritty
-cp -r ~/.config/rofi/* ./rofi
-cp -r ~/.config/waybar/* ./waybar
-cp -r ~/.config/wlogout/* ./wlogout
-cp -r ~/.config/dunst/* ./dunst
-cp ~/.bashrc ./
-cp ~/.zshrc ./
-cp ~/.local/share/sioyek/shared.db ./sioyek
+rsync -av --delete ~/.config/nvim/lua/ ./nvim/
+rsync -av --delete ~/.config/hypr/ ./hypr/
+rsync -av --delete ~/.config/alacritty/ ./alacritty/
+rsync -av --delete ~/.config/rofi/ ./rofi/
+rsync -av --delete ~/.config/waybar/ ./waybar/
+rsync -av --delete ~/.config/wlogout/ ./wlogout/
+rsync -av --delete ~/.config/dunst/ ./dunst/
+
+rsync -av ~/.bashrc ./
+rsync -av ~/.zshrc ./
+rsync -av ~/.local/share/sioyek/shared.db ./sioyek/
