@@ -2,12 +2,13 @@
   "position": "top",
   "layer": "top",
 
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
   "modules-right": [
     "mpris",
     "hyprland/language",
     "network",
+    "memory",
     "battery",
     "pulseaudio",
     "tray",
@@ -15,9 +16,42 @@
     // "idle_inhibitor"
   ],
 
+  // DEPRECATED USELESS SH**. MAY USE IN THE FUTURE FOR SOME REASON...
+  // "hyprland/workspaces": {
+  //   "format": "{name} {windows}",
+  //   "unique-icons" : true,
+  //   "format-window-separator": " ",
+  //   "window-rewrite-default": "",
+  //
+  //   "window-rewrite": {
+  //     "class<firefox>": "",
+  //     "class<chromium>": "",
+  //
+  //     "class<spotify>": "",
+  //     "class<steam>": "",
+  //
+  //     "class<Alacritty>": "",
+  //     "class<Alacritty> title<.*nvim.*>": "",
+  //
+  //     "class<thunar>": "",
+  //     "class<code>": "󰨞",
+  //     "class<org.qt-project.qtcreator>": "",
+  //     "class<obsidian>": "󰠮",
+  //     "class<org.telegram.desktop>": ""
+  //   },
+  //
+  // },
+
   "hyprland/workspaces": {
-    "active-only": false,
-    "format": "{icon}"
+    "format": "{name}",
+    "active-only": true,
+  },
+
+  "hyprland/window": {
+    "format": " <i>{title}</i>",
+    "separate-outputs": true,
+    "icon": true,
+    "icon-size": 28,
   },
 
   "tray": {
@@ -46,17 +80,50 @@
     "format-icons": ["", "", "", "", ""],
   },
 
+  "memory": {
+    "interval": 5,
+    "format": "󰍛 {percentage}%",
+    "format-warning": "  {percentage}%",
+    "format-critical": "  {percentage}%",
+    "states": {
+      "warning": 70,
+      "critical": 85
+    },
+    "tooltip-format": "RAM: {used:0.1f}/{total:0.1f}G ({percentage}%)\nAvailable: {avail:0.1f}G",
+    "on-click": "alacritty -e htop"
+  },
+
   "clock": {
-    "format": "<i>{:%H:%M}</i>",
-    "format-alt": "<i>{:%Y-%m-%d}</i>",
-    "tooltip-format": "{:%Y %B}\n{calendar}",
+    "format": "<i>{:%H:%M %B%e}</i>",
+    "format-alt": "{:%Y/%m/%d}",
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 4,
+      "weeks-pos"     : "left",
+      "iso8601"       : true,
+      "format": {
+        "months":     "<span color='#e9d8a6'>{}</span>",
+        "days":       "<span color='#94d2bd'><b>{}</b></span>",
+        "weeks":      "<span color='#0a9396'>{}</span>",
+        "weekdays":   "<span color='#005f73'>{}</span>",
+        "today":      "<span color='#e0aaff'><u>{}</u></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+      "on-click-middle": "shift_reset"
+    }
   },
 
   "network": {
     "format-wifi": "  {essid} {bandwidthDownBits}",
     "format-ethernet": "󰈀 {ifname}",
     "format-disconnected": " Offline",
-    "max-length": 20,
+    "max-length": 30,
+    "on-click": "alacritty -e nmtui"
   },
 
   "pulseaudio": {
@@ -77,8 +144,8 @@
       "car": "",
       "default": ["", "", ""],
     },
-    "on-click-right": "pavucontrol",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-",
   },

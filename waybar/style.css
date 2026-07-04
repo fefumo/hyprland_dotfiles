@@ -19,19 +19,16 @@
 /* @define-color work #b4befe; */
 
 * {
-  font-family:
-    JetBrainsMono Nerd Font,
-    monospace;
-  font-size: 16px;
-  font-weight: 700;
+  font-family: JetBrainsMono Nerd Font, monospace;
+  font-weight: 600;
+  font-size: 18px;
   color: @text;
   border: none;
 }
 
 tooltip {
   background: @transp_bg;
-  color: @text;
-  border-radius: 10px;
+  border-radius: 18px;
   text-shadow: none; /* fix text rendering */
 }
 
@@ -41,41 +38,43 @@ window#waybar {
 }
 
 .modules-left,
-.modules-center {
-  margin: 8px;
-  padding: 5px 16px;
-  border-radius: 18px;
-}
-
 .modules-right {
   border-radius: 18px;
-  margin: 8px;
-}
-
-.modules-right .module {
-  margin-left: 20px;
-}
-
-.modules-left,
-.modules-center,
-.modules-right {
   background: @main_bg;
 }
 
-/* ---------- Battery&power ---------- */
-/* background: @transp_bg; */
-/* background: @main_bg; */
+
+.modules-right .module {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+/* ---------- Center modules ---------- */
+/* ---------- Window & clock ---------- */
+#window {
+  margin-right: 10px;
+}
+
+#clock {
+  background: @main_bg;
+  border-radius: 18px;
+  padding: 0 10 0 10;
+}
+
+/* ---------- Right modules ---------- */
+
+/* ---------- Battery & power ---------- */
 #battery.wtf {
   color: rgba(255, 149, 57, 1);
-  /* color: rgba(242, 0, 0, 0.8); */
 }
 
 #battery.critical {
-  color: rgba(242, 0, 0, 0.8);
+  color: rgba(242, 0, 0, 1);
 }
 
 #battery.charging {
-  color: rgba(73, 193, 77, 0.8);
+  color: rgba(73, 193, 77, 1);
 }
 
 #custom-power {
@@ -84,21 +83,26 @@ window#waybar {
 
 #custom-power:hover {
   font-size: 45px;
-  color: rgba(212, 52, 25, 0.9);
+  color: rgba(212, 52, 25, 1);
 }
-
-/* #network { */
-/*   background: @main_bg; */
-/* } */
 
 /* ---------- Workspaces ---------- */
 #workspaces button {
-  margin: 3px;
-  border-radius: 12px;
-  transition: background 0.15s ease;
+  border-radius: 18px;
+  margin: 3 10 3 10;
 }
+
 
 #workspaces button.active {
   background: @work;
   box-shadow: 0 2px 10px rgba(180, 190, 254, 0.45);
+}
+
+/* ---------- Memory ----------*/
+#memory.warning {
+  color: rgba(255, 180, 80, 1);
+}
+
+#memory.critical {
+  color: rgba(255, 80, 80, 1);
 }

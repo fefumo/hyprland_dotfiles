@@ -4,7 +4,7 @@ set -euo pipefail
 CFG_DIR="${HOME}/.config/waybar"
 COLORS_FILE="${CFG_DIR}/colors.css"
 
-# -------- detect focused monitor & its wallpaper --------
+# detect focused monitor & its wallpaper
 FOCUSED="$(hyprctl -j monitors 2>/dev/null | jq -r '.[] | select(.focused==true) | .name' || true)"
 WP="$(hyprctl hyprpaper listactive 2>/dev/null | awk -v m="$FOCUSED" -F ': ' '$1==m{print $2; found=1} END{if(!found) {print "wallpaper not found"} }' || true)"
 
@@ -13,7 +13,7 @@ echo "wp: $WP"
 
 theme_auto=""
 
-# also check wlogout/logoutlaunch.sh if the theme is broken
+# if it always stays at one color, then also check wlogout/logoutlaunch.sh
 if [ -n "${WP:-}" ] && [ -f "$WP" ]; then
   YRAW=$(magick "$WP" -resize 1x1\! -colorspace Gray -format "%[fx:mean]" info: 2>/dev/null || echo "")
   echo "yraw: $YRAW"
@@ -41,7 +41,6 @@ theme="${theme_auto:-dark}"
 
 case "$theme" in
 white)
-  # expressive white mode
   export TranspBg='rgba(190, 180, 204, 0.65)'
   export Text='#0b1220'
   export MainBg='rgba(0, 0, 0, 0.2)'
