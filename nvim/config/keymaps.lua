@@ -3,4 +3,4 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "terminal -> normal" })
-vim.keymap.set("n", "<Leader>qw","<cmd>wqall<cr>", { desc = "write & quit all buffers"} )
+vim.keymap.set("n", "<Leader>qw", "<cmd>wqall<cr>", { desc = "write & quit all buffers" })
