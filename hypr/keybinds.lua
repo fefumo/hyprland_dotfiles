@@ -24,6 +24,8 @@ hl.bind(
 	hl.dsp.exec_cmd("rofi -modi clipboard:~/.config/hypr/cliphist-rofi-img -show clipboard -show-icons")
 )
 
+hl.bind("ALT + Q", hl.dsp.exec_cmd("~/.config/hypr/alacritty.sh"))
+
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
