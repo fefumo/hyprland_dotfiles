@@ -81,6 +81,7 @@ end)
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
 hl.env("XCURSOR_THEME", "nier_cursors")
+hl.env("QT_SCALE_FACTOR", "1.5")
 -- hl.env("XCURSOR_SIZE", "24")
 -- hl.env("HYPRCURSOR_SIZE", "24")
 
@@ -153,6 +154,12 @@ hl.window_rule({
 	opaque = 1,
 })
 
+hl.config({
+	xwayland = {
+		force_zero_scaling = true,
+	},
+})
+
 hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1" })
 -- hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = "5", monitor = "eDP-1" })
@@ -166,7 +173,7 @@ local suppressMaximizeRule = hl.window_rule({
 
 	suppress_event = "maximize",
 })
--- suppressMaximizeRule:set_enabled(false)
+suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
 	-- Fix some dragging issues with XWayland
