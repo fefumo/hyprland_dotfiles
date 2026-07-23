@@ -95,7 +95,7 @@
 
   "clock": {
     "format": "<i>{:%H:%M %B %e}</i>",
-    "format-alt": "{:%Y/%m/%d}",
+    "format-alt": "{:%d/%m/%Y}",
     "tooltip-format": "{calendar}",
     "calendar": {
       "mode"          : "month",
