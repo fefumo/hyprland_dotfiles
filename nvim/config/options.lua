@@ -3,6 +3,7 @@
 -- Add any additional options here
 
 -- vim.g.autoformat = false
+vim.opt.modeline = false
 
 vim.opt.spelllang = { "ru", "en" }
 
