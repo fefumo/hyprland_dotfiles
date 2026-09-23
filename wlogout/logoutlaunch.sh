@@ -21,20 +21,26 @@ if [ ! -f "${wLayout}" ] || [ ! -f "${wlTmplt}" ]; then
   exit 1
 fi
 
-# detect monitor res
+# Detect focused monitor
+monitor=$(hyprctl -j monitors |
+  jq -r '.[] | select(.focused == true)')
 
-x_mon=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .width')
-y_mon=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .height')
-hypr_scale=$(hyprctl -j monitors | jq '.[] | select (.focused == true) | .scale' | sed 's/\.//')
+x_mon=$(jq -r '.width' <<<"$monitor")
+y_mon=$(jq -r '.height' <<<"$monitor")
+hypr_scale=$(jq -r '.scale' <<<"$monitor")
 
-# scale config layout and style
+# Calculate scaled dimensions
 wlColms=6
-export mgn=$((y_mon * 28 / hypr_scale))
-export hvr=$((y_mon * 23 / hypr_scale))
 
-# scale font size
+export mgn=$(awk -v h="$y_mon" -v s="$hypr_scale" \
+  'BEGIN { printf "%.0f", h * 0.28 / s }')
+
+export hvr=$(awk -v h="$y_mon" -v s="$hypr_scale" \
+  'BEGIN { printf "%.0f", h * 0.23 / s }')
 
 export fntSize=$((y_mon * 2 / 100))
+
+echo "DEBUG: resolution=${x_mon}x${y_mon} scale=$hypr_scale mgn=$mgn hvr=$hvr"
 
 # --- DETECT CURRENT WALLPAPER ---
 
