@@ -1,22 +1,22 @@
-@define-color transp_bg ${TranspBg};
 @define-color text ${Text};
 @define-color main_bg ${MainBg};
-@define-color work ${Work};
+@define-color accent ${Accent};
+@define-color tooltipbg ${ToolTipBg};
 
 /* for testing */
 /* white theme */
 
-/* @define-color transp_bg rgba(190, 180, 204, 0.65); */
+/* @define-color tooltipbg rgba(190, 180, 204, 0.65); */
 /* @define-color text #0b1220; */
 /* @define-color main_bg rgba(0, 0, 0, 0.2); */
-/* @define-color work rgba(140, 219, 213, 0.7); */
+/* @define-color accent rgba(140, 219, 213, 0.7); */
 
 /* dark theme */
 
-/* @define-color transp_bg rgba(9,13,20,0.40); */
+/* @define-color tooltipbg rgba(9,13,20,0.40); */
 /* @define-color text #eef3ff; */
 /* @define-color main_bg rgba(180,190,254,0.18); */
-/* @define-color work #b4befe; */
+/* @define-color accent #b4befe; */
 
 * {
   font-family: JetBrainsMono Nerd Font, monospace;
@@ -27,13 +27,13 @@
 }
 
 tooltip {
-  background: @transp_bg;
+  background: @tooltipbg;
   border-radius: 18px;
   text-shadow: none; /* fix text rendering */
 }
 
 window#waybar {
-  background: @transp_bg;
+  background: rgba(0, 0, 0, 0); /* remove background */
   border-radius: 18px;
 }
 
@@ -94,7 +94,7 @@ window#waybar {
 
 
 #workspaces button.active {
-  background: @work;
+  background: @accent;
   box-shadow: 0 2px 10px rgba(180, 190, 254, 0.45);
 }
 

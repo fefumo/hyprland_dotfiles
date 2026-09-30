@@ -41,16 +41,16 @@ theme="${theme_auto:-dark}"
 
 case "$theme" in
 white)
-  export TranspBg='rgba(190, 180, 204, 0.65)'
   export Text='#0b1220'
-  export MainBg='rgba(0, 0, 0, 0.2)'
-  export Work='rgba(140, 219, 213, 0.7)'
+  export MainBg='rgba(224, 245, 238, 0.6)'
+  export Accent='rgba(91, 137, 166, 1)'
+  export ToolTipBg='rgba(190, 180, 204, 0.65)'
   ;;
 black | dark)
-  export TranspBg='rgba(9,13,20,0.40)'
   export Text='#eef3ff'
-  export MainBg='rgba(180,190,254,0.18)'
-  export Work='#b4befe'
+  export MainBg='rgba(180,190,254,0.4)'
+  export Accent='#b4befe'
+  export ToolTipBg='rgba(9,13,20,0.40)'
   ;;
 *)
   echo "Unknown theme: $theme (use: white|black)" >&2

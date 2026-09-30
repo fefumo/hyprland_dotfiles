@@ -65,7 +65,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("avizo-service")
 	hl.exec_cmd("wl-paste --watch cliphist store")
 	hl.exec_cmd("hyprpaper")
-	hl.exec_cmd("~/.config/hypr/random_wall.sh & ~/.config/waybar/gen_waybar_theme.sh")
+	hl.exec_cmd("~/.config/hypr/random_wall.sh; sleep 2; ~/.config/waybar/gen_waybar_theme.sh")
 	hl.exec_cmd("firefox", { workspace = "1" })
 end)
 
